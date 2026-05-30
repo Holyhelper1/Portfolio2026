@@ -1,0 +1,84 @@
+{
+  "header": {
+    "about": "About",
+    "projects": "Projects",
+    "stack": "Stack",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Alexander Shulgin",
+    "role": "Middle Frontend Developer",
+    "subtitle": "React | TypeScript | Redux Toolkit",
+    "description": "Building complex interfaces that are pleasant to open and easy to maintain."
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Frontend developer focused on React and TypeScript. At Bravo Soft, I'm responsible for the client-side architecture of B2B products, integrating unconventional solutions like Playwright and canvas.",
+    "description2": "I love it when code is predictable and design is alive. I believe good frontend starts with good typing.",
+    "location": "Nizhny Novgorod",
+    "english": "English B2",
+    "experience": "Experience",
+    "experienceValue": "3+ years",
+    "projects": "Projects",
+    "projectsValue": "10+",
+    "technologies": "Technologies",
+    "technologiesValue": "15+"
+  },
+  "projects": {
+     "title": "Featured Projects",
+    "subtitle": "My key commercial works, production cases, and responsive interfaces",
+    "links": {
+      "demo": "Live Demo",
+      "code": "GitHub",
+      "private": "Private Repo",
+      "caseStudy": "Case Study"
+    },
+    "lumiere": {
+      "title": "Lumiere-closet",
+      "description": "Premium AI-powered digital wardrobe and outfit planner app. Features smart outfit pairing based on visual analysis, seasonal recommendations, and custom collection management.",
+      "tech": "Next.js, TypeScript, Prisma, CSS Module, NextAuth, OpenAI API"
+    },
+    "tentoteka": {
+      "title": "Tentoteka",
+      "description": "Commercial web platform for a manufacturing company creating custom automotive tents and awnings. Built as a fast client application integrated with a content management system.",
+      "tech": "React, TypeScript, Vite, WordPress REST API, CSS Module"
+    },
+    "ruslana": {
+      "title": "Ruslana Cakes",
+      "description": "Full-featured MVP e-commerce pet-project for a pastry shop. Includes an interactive product catalog, custom shopping cart management, and automated order notifications via Telegram.",
+      "tech": "React, Vite, TypeScript, Firebase, Context API, SCSS"
+    },
+    "dreamhouse": {
+      "title": "DreamHouse",
+      "description": "Highly responsive landing page for a premium house building and real estate company. Built with a strong focus on pixel-perfect layout implementation, layout animations, and optimized load speed.",
+      "tech": "React, Vite, SCSS, JavaScript, BEM methodology"
+    },
+    "crossfit": {
+      "title": "CrossFit",
+      "description": "Modern, dynamic landing page for a fitness gym and crossfit community. Features responsive grids, dark aesthetic styling, interactive schedule blocks, and smooth animations.",
+      "tech": "React, Vite, SCSS, JavaScript, BEM methodology"
+    }
+  },
+  "stack": {
+    "title": "Tech Stack",
+    "subtitle": "Tools and technologies I work with daily",
+    "languages": "Languages",
+    "frameworks": "Frameworks & Libraries",
+    "styling": "Styling",
+    "tools": "Tools",
+    "testing": "Testing"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "madeWith": "Made with"
+  },
+  "theme": {
+    "light": "Light theme",
+    "dark": "Dark theme"
+  },
+  "lang": {
+    "ru": "Русский",
+    "en": "English"
+  }
+}

@@ -1,0 +1,261 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+  opacity: 0.08;
+}
+
+.heroBlob1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--primary-color-rgb), 0.15) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.heroBlob2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--primary-accent-rgb), 0.12) 0%, transparent 70%);
+  bottom: -100px;
+  left: -50px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+/* ==========================================================================
+   ИЗМЕНЕНО: Сетка для контента (Текст + Фото)
+   ========================================================================== */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  max-width: 1100px; /* Увеличили ширину, чтобы вместить две колонки */
+  width: 100%;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Левая текстовая колонка */
+.textContent {
+  flex: 1;
+  text-align: left; /* Текст теперь выровнен по левому краю */
+}
+
+/* Контейнер для фотографии */
+.photoContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Стилизация вашего фото */
+.avatar {
+  width: clamp(280px, 30vw, 360px);
+  height: clamp(280px, 30vw, 360px);
+  object-fit: cover;
+  border-radius: 50%;
+  /* Градиентная рамка через декор */
+  padding: 6px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-accent));
+  /* Мягкое свечение в тон бэкграунда сайта */
+  box-shadow: 0 16px 40px rgba(var(--primary-color-rgb), 0.25);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.02) rotate(1deg);
+  box-shadow: 0 20px 50px rgba(var(--primary-color-rgb), 0.4);
+}
+
+/* ==========================================================================
+   КОНЕЦ ИЗМЕНЕНИЙ
+   ========================================================================== */
+
+.greeting {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-accent);
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.name {
+  font-size: clamp(40px, 5vw, 64px); /* Немного уменьшили максимальный размер для баланса с фото */
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.role {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.subtitle span {
+  color: var(--primary-accent);
+  font-weight: 600;
+}
+
+.description {
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start; /* Кнопки прижаты к левому краю */
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  padding: 14px 32px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-accent));
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(var(--primary-color-rgb), 0.5);
+}
+
+.ctaSecondary {
+  padding: 14px 32px;
+  border-radius: 14px;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  color: var(--text-main);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(var(--primary-color-rgb), 0.15);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.scrollArrow {
+  font-size: 18px;
+}
+
+/* ==========================================================================
+   Адаптивность под планшеты и мобилки
+   ========================================================================== */
+@media (max-width: 968px) {
+  .content {
+    flex-direction: column-reverse; /* На мобильных фото будет СВЕРХУ, а текст снизу */
+    text-align: center;
+    gap: 32px;
+  }
+
+  .textContent {
+    text-align: center; /* Центрируем текст на мобильных */
+  }
+
+  .ctaGroup {
+    justify-content: center; /* Центрируем кнопки на мобильных */
+  }
+  
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 16px 40px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .avatar {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* Дополнительные анимации, если они не были объявлены глобально */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
