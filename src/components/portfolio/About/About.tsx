@@ -1,10 +1,11 @@
-
 import { Zap, Rocket, Wrench, MapPin, Globe } from 'lucide-react';
 import { useLanguage } from '../../../i18n';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import styles from './About.module.css';
 
 export function About() {
   const { t } = useLanguage();
+  const { ref, isRevealed } = useScrollReveal();
 
   const stats = [
     {
@@ -28,7 +29,11 @@ export function About() {
   ];
 
   return (
-    <section className={styles.about} id="about">
+    <section 
+      className={`${styles.about} ${isRevealed ? styles.visible : ''}`} 
+      id="about" 
+      ref={ref}
+    >
       <h2 className={styles.sectionTitle}>{t.about.title}</h2>
       <p className={styles.sectionSubtitle}>
         Frontend Developer · React · TypeScript
@@ -50,8 +55,12 @@ export function About() {
         </div>
 
         <div className={styles.statsBlock}>
-          {stats.map((stat) => (
-            <div key={stat.label} className={styles.statCard}>
+          {stats.map((stat, index) => (
+            <div 
+              key={stat.label} 
+              className={styles.statCard}
+              style={{ '--index': index } as React.CSSProperties}
+            >
               <div className={`${styles.statIcon} ${stat.iconClass}`}>
                 {stat.icon}
               </div>

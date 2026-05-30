@@ -4,12 +4,25 @@
   margin: 0 auto;
 }
 
+.sectionTitle,
+.sectionSubtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
 .sectionTitle {
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 800;
   text-align: center;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-accent));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -41,7 +54,14 @@
   box-shadow:
     0 8px 30px var(--shadow-color),
     0 2px 8px var(--shadow-elevated);
-  transition: all 0.3s ease;
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .category:hover {
@@ -49,6 +69,22 @@
   box-shadow:
     0 16px 50px var(--shadow-color),
     0 4px 16px var(--shadow-elevated);
+}
+
+.category:has(.iconLang):hover {
+  border-color: rgba(var(--primary-color-rgb), 0.9);
+}
+.category:has(.iconFw):hover {
+  border-color: rgba(var(--primary-accent-rgb), 0.9);
+}
+.category:has(.iconStyle):hover {
+  border-color: rgba(var(--success-color-rgb), 0.9);
+}
+.category:has(.iconTool):hover {
+  border-color: rgba(255, 107, 53, 0.9);
+}
+.category:has(.iconTest):hover {
+  border-color: rgba(140, 111, 240, 0.9);
 }
 
 .categoryIcon {
@@ -68,23 +104,39 @@
 }
 
 .iconLang {
-  background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.15), rgba(var(--primary-color-rgb), 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(var(--primary-color-rgb), 0.15),
+    rgba(var(--primary-color-rgb), 0.05)
+  );
 }
-
 .iconFw {
-  background: linear-gradient(135deg, rgba(var(--primary-accent-rgb), 0.15), rgba(var(--primary-accent-rgb), 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(var(--primary-accent-rgb), 0.15),
+    rgba(var(--primary-accent-rgb), 0.05)
+  );
 }
-
 .iconStyle {
-  background: linear-gradient(135deg, rgba(var(--success-color-rgb), 0.15), rgba(var(--success-color-rgb), 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(var(--success-color-rgb), 0.15),
+    rgba(var(--success-color-rgb), 0.05)
+  );
 }
-
 .iconTool {
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 107, 53, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.15),
+    rgba(255, 107, 53, 0.05)
+  );
 }
-
 .iconTest {
-  background: linear-gradient(135deg, rgba(140, 111, 240, 0.15), rgba(140, 111, 240, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(140, 111, 240, 0.15),
+    rgba(140, 111, 240, 0.05)
+  );
 }
 
 .categoryTitle {
@@ -108,15 +160,66 @@
   background: var(--bg-light);
   color: var(--text-muted);
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
   cursor: default;
+
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  opacity: 0;
+  transform: scale(0.9);
 }
 
 .skill:hover {
   border-color: var(--primary-color);
   color: var(--primary-color);
   background: rgba(var(--primary-color-rgb), 0.08);
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.03);
+}
+
+@keyframes fadeInUpCategory {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleInSkill {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.visible .category {
+  animation: fadeInUpCategory 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(0.2s + var(--cat-index) * 0.12s);
+}
+
+.visible .category .skill {
+  animation: scaleInSkill 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(
+    0.35s + var(--cat-index) * 0.12s + var(--skill-index) * 0.04s
+  );
+}
+
+.visible .sectionTitle,
+.visible .sectionSubtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+.visible .sectionSubtitle {
+  transition-delay: 0.1s;
 }
 
 @media (max-width: 768px) {

@@ -4,6 +4,13 @@
   margin: 0 auto;
 }
 
+.sectionTitle,
+.sectionSubtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
 .sectionTitle {
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 800;
@@ -41,9 +48,17 @@
   box-shadow:
     0 10px 40px var(--shadow-color),
     0 2px 10px var(--shadow-elevated);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+
+  opacity: 0;
+  transform: translateY(40px);
 }
 
 .card:hover {
@@ -60,6 +75,7 @@
   border-radius: 24px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .cardImage img {
@@ -141,6 +157,12 @@
   letter-spacing: 0.3px;
 }
 
+.techTag:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: rgba(var(--primary-color-rgb), 0.08);
+}
+
 .cardActions {
   display: flex;
   gap: 12px;
@@ -197,7 +219,6 @@
   grid-column: 1 / -1;
 }
 
-/* Color accents per card */
 .cardAccent1 {
   border-top: 3px solid var(--primary-color);
 }
@@ -209,6 +230,107 @@
 .cardAccent3 {
   border-top: 3px solid var(--success-color);
 }
+
+
+@keyframes fadeInUpCard {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.visible .card {
+  animation: fadeInUpCard 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(0.2s + var(--index) * 0.15s);
+}
+
+.visible .sectionTitle,
+.visible .sectionSubtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visible .sectionSubtitle {
+  transition-delay: 0.15s;
+}
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  animation: fadeInLightbox 0.3s ease-out forwards;
+}
+
+.lightboxContent {
+  max-width: 90vw;
+  max-height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: scale(0.9);
+  animation: zoomInImage 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightboxClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  color: var(--primary-accent);
+}
+
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomInImage {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 
 @media (max-width: 768px) {
   .projects {
@@ -230,5 +352,20 @@
 
   .cardFullWidth {
     grid-column: auto;
+  }
+
+  .lightboxOverlay {
+    padding: 16px;
+  }
+
+  .lightboxClose {
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .visible .card {
+    animation-delay: 0.1s;
   }
 }

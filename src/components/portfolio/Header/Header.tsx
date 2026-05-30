@@ -1,9 +1,9 @@
-
 import { useState } from 'react';
 import { useLanguage } from '../../../i18n';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import { LangSwitcher } from '../LangSwitcher/LangSwitcher';
 import styles from './Header.module.css';
+import Logo from '../../../assets/logo.png';
 
 interface HeaderProps {
   onNavigate: (section: string) => void;
@@ -28,8 +28,15 @@ export function Header({ onNavigate }: HeaderProps) {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.logo} onClick={() => handleNav('hero')}>
-          AS
+       <div className={styles.logoContainer} onClick={() => handleNav('hero')}>
+          <img 
+            src={Logo}
+            alt="Alexander Shulgin Logo" 
+            className={styles.logoIcon} 
+          />
+          <span className={styles.logoText}>
+            Shulgin<span className={styles.logoDot}>.dev</span>
+          </span>
         </div>
 
         <nav className={styles.nav}>

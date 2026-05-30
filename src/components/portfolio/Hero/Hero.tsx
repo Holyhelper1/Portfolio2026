@@ -1,6 +1,5 @@
 import { useLanguage } from '../../../i18n';
 import styles from './Hero.module.css';
-// Импортируем ваше фото (путь укажите свой)
 import avatarImg from '../../../assets/my-photo.jpg'; 
 
 interface HeroProps {
@@ -18,10 +17,8 @@ export function Hero({ onNavigate }: HeroProps) {
         <div className={styles.heroBlob2} />
       </div>
 
-      {/* Главный контейнер теперь будет флекс-контейнером для текста и фото */}
       <div className={styles.content}>
         
-        {/* Левая колонка: Текст и кнопки */}
         <div className={styles.textContent}>
           <p className={styles.greeting}>{t.hero.greeting}</p>
           <h1 className={styles.name}>{t.hero.name}</h1>
@@ -53,7 +50,6 @@ export function Hero({ onNavigate }: HeroProps) {
           </div>
         </div>
 
-        {/* Правая колонка: Контейнер для фото */}
         <div className={styles.photoContainer}>
           <img 
             src={avatarImg} 

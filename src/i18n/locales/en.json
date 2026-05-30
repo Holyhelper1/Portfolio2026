@@ -44,6 +44,11 @@
       "description": "Commercial web platform for a manufacturing company creating custom automotive tents and awnings. Built as a fast client application integrated with a content management system.",
       "tech": "React, TypeScript, Vite, WordPress REST API, CSS Module"
     },
+     "noCodeTesting": {
+      "title": "No-Code Testing Platform",
+      "description": "Commercial enterprise platform for creating E2E tests without code. Engineered visual step builders, integrated canvas workflow architecture, and achieved a 2x build speed improvement with Vite migration.",
+      "tech": "Playwright, Canvas, React, RTK Query, CSS Modules, Vite"
+    },
     "ruslana": {
       "title": "Ruslana Cakes",
       "description": "Full-featured MVP e-commerce pet-project for a pastry shop. Includes an interactive product catalog, custom shopping cart management, and automated order notifications via Telegram.",

@@ -1,4 +1,3 @@
-
 import { Send, Mail, Briefcase, Github, Heart } from 'lucide-react';
 import { useLanguage } from '../../../i18n';
 import styles from './Footer.module.css';
@@ -62,14 +61,12 @@ export function Footer() {
           <div className={styles.links}>
             <div className={styles.linkGroup}>
               <h4>{t.header.projects}</h4>
-              <a href="http://212.60.21.70/" target="_blank" rel="noopener noreferrer">
-                iReserve
-              </a>
-              <span>No-Code Testing</span>
-              <a href="https://holyhelper1.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
-                Portfolio
-              </a>
+              <a href="#projects">Lumiere-closet</a>
+              <a href="#projects">Tentoteka</a>
+              <a href="#projects">Ruslana Cakes</a>
+              <a href="#projects">No-Code Testing</a>
             </div>
+            
             <div className={styles.linkGroup}>
               <h4>{t.header.contact}</h4>
               <a href="https://t.me/AlexanderShulg" target="_blank" rel="noopener noreferrer">
