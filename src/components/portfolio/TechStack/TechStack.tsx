@@ -1,4 +1,4 @@
-import { Code2, Braces, Palette, Wrench, FlaskConical } from 'lucide-react';
+import { Code2, Braces, Server, Palette, Wrench, FlaskConical } from 'lucide-react';
 import { useLanguage } from '../../../i18n';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import styles from './TechStack.module.css';
@@ -12,7 +12,7 @@ export function TechStack() {
       icon: <Code2 size={22} />,
       iconClass: styles.iconLang,
       title: t.stack.languages,
-      skills: ['TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS3'],
+      skills: ['TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'SQL'],
     },
     {
       icon: <Braces size={22} />,
@@ -21,16 +21,22 @@ export function TechStack() {
       skills: ['React', 'Next.js', 'Redux Toolkit', 'RTK Query', 'Vite'],
     },
     {
+      icon: <Server size={22} />,
+      iconClass: styles.iconBackend,
+      title: t.stack.backendAi,
+      skills: ['Node.js', 'PostgreSQL', 'Prisma', 'S3', 'Docker', 'AI / LLM API', 'ЮKassa'],
+    },
+    {
       icon: <Palette size={22} />,
       iconClass: styles.iconStyle,
       title: t.stack.styling,
-      skills: ['SCSS / SASS', 'Tailwind CSS', 'CSS Modules', 'Material UI'],
+      skills: ['SCSS / SASS', 'CSS Modules', 'Tailwind CSS', 'Material UI'],
     },
     {
       icon: <Wrench size={22} />,
       iconClass: styles.iconTool,
       title: t.stack.tools,
-      skills: ['Git / GitHub', 'WordPress REST API', 'Prisma (ORM)', 'Firebase', 'Docker', 'VDS'],
+      skills: ['Git / GitHub', 'WordPress REST API', 'Firebase', 'VDS', 'CI / CD'],
     },
     {
       icon: <FlaskConical size={22} />,
@@ -41,8 +47,8 @@ export function TechStack() {
   ];
 
   return (
-    <section 
-      className={`${styles.stack} ${isRevealed ? styles.visible : ''}`} 
+    <section
+      className={`${styles.stack} ${isRevealed ? styles.visible : ''}`}
       id="stack"
       ref={ref}
     >
@@ -51,8 +57,8 @@ export function TechStack() {
 
       <div className={styles.categories}>
         {categories.map((category, catIndex) => (
-          <div 
-            key={category.title} 
+          <div
+            key={category.title}
             className={styles.category}
             style={{ '--cat-index': catIndex } as React.CSSProperties}
           >
@@ -62,8 +68,8 @@ export function TechStack() {
             <h3 className={styles.categoryTitle}>{category.title}</h3>
             <div className={styles.skills}>
               {category.skills.map((skill, skillIndex) => (
-                <span 
-                  key={skill} 
+                <span
+                  key={skill}
                   className={styles.skill}
                   style={{ '--skill-index': skillIndex } as React.CSSProperties}
                 >

@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Alexander Shulgin — Fullstack / AI Product Engineer",
+    "description": "Fullstack / AI Product Engineer building web apps and AI products end to end — React, Next.js, TypeScript, Node.js, PostgreSQL, LLMs and payments. Featured case: CAPSULA AI."
+  },
   "header": {
     "about": "About",
     "projects": "Projects",
@@ -8,68 +12,147 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Alexander Shulgin",
-    "role": "Middle Frontend Developer",
-    "subtitle": "React | TypeScript | Redux Toolkit",
-    "description": "Building complex interfaces that are pleasant to open and easy to maintain."
+    "role": "Fullstack / AI Product Engineer",
+    "description": "I build fast web applications and AI products end to end: from React/Next.js interfaces to LLM integrations, generative models and payment systems.",
+    "stack": ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "AI API"],
+    "primaryCta": "View cases",
+    "secondaryCta": "Discuss a project",
+    "scroll": "SCROLL"
   },
   "about": {
     "title": "About Me",
-    "description": "Frontend developer focused on React and TypeScript. At Bravo Soft, I'm responsible for the client-side architecture of B2B products, integrating unconventional solutions like Playwright.",
-    "description2": "I love it when code is predictable and design is alive. I believe good frontend starts with good typing.",
+    "subtitle": "Fullstack / AI Product Engineer · React · Next.js",
+    "description": "Fullstack engineer focused on React and TypeScript. At Bravo Soft I own the client-side architecture of B2B products and introduce tools that speed up the team.",
+    "description2": "I designed and shipped CAPSULA AI myself — an AI product with generative models, subscriptions and payments. I like predictable code and products that solve business problems.",
     "location": "Nizhny Novgorod",
     "english": "English B2",
-    "experience": "Experience",
+    "experience": "Commercial experience",
     "experienceValue": "3+ years",
     "projects": "Projects",
     "projectsValue": "10+",
-    "technologies": "Technologies",
-    "technologiesValue": "15+"
+    "aiProduct": "AI product shipped",
+    "aiProductValue": "1",
+    "focus": [
+      "Frontend architecture",
+      "AI integrations",
+      "Performance",
+      "B2B SaaS"
+    ]
   },
   "projects": {
-     "title": "Featured Projects",
-    "subtitle": "My key commercial works, production cases, and responsive interfaces",
+    "title": "Featured Cases",
+    "subtitle": "Products I designed and shipped to production — from an AI service to B2B platforms",
+    "labels": {
+      "task": "Task",
+      "solution": "Solution",
+      "result": "Result",
+      "stack": "Stack",
+      "challenges": "Engineering challenges",
+      "architecture": "Architecture",
+      "business": "Business model"
+    },
     "links": {
       "demo": "Live Demo",
       "code": "GitHub",
-      "private": "Private Repo",
-      "caseStudy": "Case Study"
+      "private": "Private code",
+      "open": "Open project"
     },
-    "lumiere": {
-      "title": "Lumiere-closet",
-      "description": "Premium AI-powered digital wardrobe and outfit planner app. Features smart outfit pairing based on visual analysis, seasonal recommendations, and custom collection management.",
-      "tech": "Next.js, TypeScript, Prisma, CSS Module, NextAuth, OpenAI API"
+    "capsula": {
+      "badge": "AI product · live",
+      "title": "CAPSULA AI",
+      "tagline": "AI wardrobe and virtual try-on",
+      "description": "A digital wardrobe: users upload their clothes, build outfits and try them on with AI. The product is live and accepts payments.",
+      "stack": "Next.js, TypeScript, Prisma, PostgreSQL, Docker, S3, AI API, YuKassa",
+      "business": "FREE / BASIC / PRO plans, generation limits and top-up packs create recurring revenue.",
+      "challenges": [
+        {
+          "title": "Photo processing pipeline",
+          "description": "Automatic background removal and WebP compression on the backend — smaller files and lower S3 costs."
+        },
+        {
+          "title": "AI virtual try-on",
+          "description": "Multimodal models preserve facial features and fit garments to the user's body."
+        },
+        {
+          "title": "Unit economics and payments",
+          "description": "Subscriptions, generation limits and payments via YuKassa with a clear cost per try-on."
+        }
+      ],
+      "architecture": [
+        {
+          "title": "Next.js + TypeScript",
+          "description": "SSR, App Router, client UI"
+        },
+        {
+          "title": "Server / API",
+          "description": "AI pipelines and business logic"
+        },
+        {
+          "title": "AI providers",
+          "description": "Background removal, analysis and virtual try-on"
+        },
+        {
+          "title": "PostgreSQL + Prisma",
+          "description": "Users, garments, outfits, limits"
+        },
+        {
+          "title": "S3 + Docker",
+          "description": "Media storage and VDS deployment"
+        },
+        {
+          "title": "YuKassa",
+          "description": "Subscriptions and payment flows"
+        }
+      ]
     },
     "tentoteka": {
+      "badge": "Commercial",
       "title": "Tentoteka",
-      "description": "Commercial web platform for a manufacturing company creating custom automotive tents and awnings. Built as a fast client application integrated with a content management system.",
-      "tech": "React, TypeScript, Vite, WordPress REST API, CSS Module"
+      "tagline": "B2B awning catalog with CMS-driven content",
+      "task": "The business needed a fast catalog site the marketing team could update without a developer.",
+      "solution": "React + Vite integrated with WordPress REST API: CMS-driven content, fast client rendering and responsive layout.",
+      "result": "Live in production: content is updated by marketing without frontend releases.",
+      "tech": "React, TypeScript, Vite, WordPress REST API, CSS Modules"
     },
-     "noCodeTesting": {
-      "title": "No-Code Testing Platform",
-      "description": "Commercial enterprise platform for creating E2E tests without code. Engineered visual step builders, integrated canvas workflow architecture, and achieved a 2x build speed improvement with Vite migration.",
+    "noCodeTesting": {
+      "badge": "Commercial · Bravo Soft",
+      "title": "No-Code Testing",
+      "tagline": "E2E testing platform without code",
+      "task": "Let teams build E2E tests without writing code.",
+      "solution": "Visual step builder on Canvas, Playwright under the hood and RTK Query for API work.",
+      "result": "Build and dev server sped up 2x after migrating to Vite; API layer code reduced by 30% with RTK Query.",
       "tech": "Playwright, Canvas, React, RTK Query, CSS Modules, Vite"
     },
     "ruslana": {
+      "badge": "Pet project / MVP",
       "title": "Ruslana Cakes",
-      "description": "Full-featured MVP e-commerce pet-project for a pastry shop. Includes an interactive product catalog, custom shopping cart management, and automated order notifications via Telegram.",
+      "tagline": "End-to-end e-commerce MVP for a pastry shop",
+      "task": "Validate demand for online orders without building a full e-commerce platform.",
+      "solution": "Catalog, cart, checkout and automated Telegram notifications on Firebase.",
+      "result": "A working MVP: orders arrive automatically, without manual request handling.",
       "tech": "React, Vite, TypeScript, Firebase, Context API, SCSS"
     },
-    "dreamhouse": {
-      "title": "DreamHouse",
-      "description": "Highly responsive landing page for a premium house building and real estate company. Built with a strong focus on pixel-perfect layout implementation, layout animations, and optimized load speed.",
-      "tech": "React, Vite, SCSS, JavaScript, BEM methodology"
-    },
-    "crossfit": {
-      "title": "CrossFit",
-      "description": "Modern, dynamic landing page for a fitness gym and crossfit community. Features responsive grids, dark aesthetic styling, interactive schedule blocks, and smooth animations.",
-      "tech": "React, Vite, SCSS, JavaScript, BEM methodology"
+    "archive": {
+      "title": "Archive / Layout",
+      "description": "Learning and landing projects — kept for history",
+      "dreamhouse": {
+        "title": "DreamHouse",
+        "description": "Responsive landing page for a construction company: pixel-perfect layout and smooth animations.",
+        "tech": "React, Vite, SCSS, TypeScript, BEM"
+      },
+      "crossfit": {
+        "title": "CrossFit",
+        "description": "Dynamic fitness club landing page: responsive grids, dark aesthetics and scroll animations.",
+        "tech": "React, Vite, SCSS, TypeScript, BEM"
+      }
     }
   },
   "stack": {
     "title": "Tech Stack",
-    "subtitle": "Tools and technologies I work with daily",
+    "subtitle": "Tools I work with daily — from interfaces to AI pipelines",
     "languages": "Languages",
     "frameworks": "Frameworks & Libraries",
+    "backendAi": "Backend & AI",
     "styling": "Styling",
     "tools": "Tools",
     "testing": "Testing"

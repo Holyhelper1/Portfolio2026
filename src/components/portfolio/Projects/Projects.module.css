@@ -32,6 +32,13 @@
   margin-right: auto;
 }
 
+:global(html:not(.js-reveal)) .sectionTitle,
+:global(html:not(.js-reveal)) .sectionSubtitle,
+:global(html:not(.js-reveal)) .card {
+  opacity: 1;
+  transform: none;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -121,6 +128,48 @@
   font-weight: 700;
   color: var(--text-main);
   margin-bottom: 4px;
+}
+
+.cardTagline {
+  font-size: 14px;
+  color: var(--primary-accent);
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+}
+
+.caseList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.caseRow {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.caseRow dt {
+  padding-top: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.caseRow dd {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.caseRow .caseResult {
+  color: var(--text-main);
+  font-weight: 500;
 }
 
 .cardSubtitle {
@@ -219,6 +268,27 @@
   grid-column: 1 / -1;
 }
 
+.cardWide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+}
+
+.cardWide .cardImage {
+  width: 44%;
+  height: auto;
+  min-height: 100%;
+  flex-shrink: 0;
+  border-radius: 24px 0 0 24px;
+}
+
+.cardWide .cardBody {
+  justify-content: center;
+}
+
+.cardWide .caseList {
+  margin-bottom: 18px;
+}
+
 .cardAccent1 {
   border-top: 3px solid var(--primary-color);
 }
@@ -229,6 +299,10 @@
 
 .cardAccent3 {
   border-top: 3px solid var(--success-color);
+}
+
+.cardAccent6 {
+  border-top: 3px solid #8c6ff0;
 }
 
 
@@ -256,6 +330,134 @@
 
 .visible .sectionSubtitle {
   transition-delay: 0.15s;
+}
+
+.archive {
+  margin-top: 48px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+.archiveSummary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.2s ease;
+}
+
+.archiveSummary::-webkit-details-marker {
+  display: none;
+}
+
+.archiveSummary:hover {
+  background: var(--bg-light);
+}
+
+.archiveTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.archiveDescription {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.archiveChevron {
+  margin-left: auto;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.archive[open] .archiveChevron {
+  transform: rotate(180deg);
+}
+
+.archiveGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 0 24px 24px;
+}
+
+.archiveCard {
+  display: flex;
+  gap: 16px;
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+}
+
+.archiveImage {
+  width: 148px;
+  height: 104px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-white);
+  cursor: zoom-in;
+}
+
+.archiveImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.archiveBody {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.archiveCardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.archiveCardText {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.archiveTech {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.archiveActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.archiveLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
 .lightboxOverlay {
@@ -344,6 +546,45 @@
 
   .cardImage {
     height: 180px;
+  }
+
+  .cardWide {
+    flex-direction: column;
+  }
+
+  .cardWide .cardImage {
+    width: 100%;
+    height: 180px;
+    min-height: 0;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .caseRow {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .archive {
+    margin-top: 32px;
+  }
+
+  .archiveSummary {
+    padding: 16px;
+  }
+
+  .archiveGrid {
+    grid-template-columns: 1fr;
+    padding: 0 16px 16px;
+    gap: 12px;
+  }
+
+  .archiveCard {
+    flex-direction: column;
+  }
+
+  .archiveImage {
+    width: 100%;
+    height: 150px;
   }
 
   .cardBody {

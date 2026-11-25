@@ -1,122 +1,122 @@
 import { useState } from 'react';
-import { ExternalLink, FolderGit2, Lock, X } from 'lucide-react';
+import {
+  Archive,
+  ChevronDown,
+  ExternalLink,
+  FolderGit2,
+  Lock,
+  X,
+} from 'lucide-react';
 import { useLanguage } from '../../../i18n';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { CapsulaCase } from './CapsulaCase';
 import styles from './Projects.module.css';
 
-import lumiereImg from '../../../assets/projects/lumiere.png';
 import tentotekaImg from '../../../assets/projects/tentoteka.jpg';
 import ruslanaImg from '../../../assets/projects/ruslana_cakes.jpg';
 import dreamhouseImg from '../../../assets/projects/dreamhouse.jpg';
 import crossfitImg from '../../../assets/projects/crossfit.jpg';
 import nocodeImg from '../../../assets/projects/nocode.jpg';
 
-
 export function Projects() {
   const { t, locale } = useLanguage();
   const { ref, isRevealed } = useScrollReveal();
-  
+
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
   const projects = [
     {
-      id: 'lumiere-closet',
-      title: t.projects.lumiere.title,
-      description: t.projects.lumiere.description,
-      tech: t.projects.lumiere.tech,
-      accent: styles.cardAccent1,
-      badge: locale === 'ru' ? 'В разработке (AI)' : 'In Progress (AI)',
-      image: lumiereImg,
-      isPrivate: true,
-      hasCaseStudy: true,
-    },
-    {
       id: 'tentoteka',
       title: t.projects.tentoteka.title,
-      description: t.projects.tentoteka.description,
+      tagline: t.projects.tentoteka.tagline,
+      task: t.projects.tentoteka.task,
+      solution: t.projects.tentoteka.solution,
+      result: t.projects.tentoteka.result,
       tech: t.projects.tentoteka.tech,
+      badge: t.projects.tentoteka.badge,
       accent: styles.cardAccent2,
-      badge: locale === 'ru' ? 'Коммерческий' : 'Commercial',
       image: tentotekaImg,
       demoUrl: 'https://tentoteka.ru/',
       codeUrl: 'https://github.com/Holyhelper1/tentoteka',
-      hasDemo: true,
-      hasCode: true,
     },
     {
       id: 'no-code-testing',
       title: t.projects.noCodeTesting.title,
-      description: t.projects.noCodeTesting.description,
+      tagline: t.projects.noCodeTesting.tagline,
+      task: t.projects.noCodeTesting.task,
+      solution: t.projects.noCodeTesting.solution,
+      result: t.projects.noCodeTesting.result,
       tech: t.projects.noCodeTesting.tech,
+      badge: t.projects.noCodeTesting.badge,
       accent: styles.cardAccent6,
-      badge: locale === 'ru' ? 'Коммерческий (Bravo Soft)' : 'Commercial (Bravo Soft)',
       image: nocodeImg,
       isPrivate: true,
     },
     {
       id: 'ruslana_cakes',
       title: t.projects.ruslana.title,
-      description: t.projects.ruslana.description,
+      tagline: t.projects.ruslana.tagline,
+      task: t.projects.ruslana.task,
+      solution: t.projects.ruslana.solution,
+      result: t.projects.ruslana.result,
       tech: t.projects.ruslana.tech,
+      badge: t.projects.ruslana.badge,
       accent: styles.cardAccent3,
-      badge: locale === 'ru' ? 'Пет-проект / MVP' : 'Pet Project / MVP',
       image: ruslanaImg,
       demoUrl: 'https://ruslana-cakes.web.app/',
       codeUrl: 'https://github.com/Holyhelper1/Ruslana_Cakes',
-      hasDemo: true,
-      hasCode: true,
+      wide: true,
     },
+  ];
+
+  const archiveProjects = [
     {
       id: 'dreamhouse',
-      title: t.projects.dreamhouse.title,
-      description: t.projects.dreamhouse.description,
-      tech: t.projects.dreamhouse.tech,
-      accent: styles.cardAccent4,
-      badge: locale === 'ru' ? 'Верстка / Лендинг' : 'Landing / UI',
+      title: t.projects.archive.dreamhouse.title,
+      description: t.projects.archive.dreamhouse.description,
+      tech: t.projects.archive.dreamhouse.tech,
       image: dreamhouseImg,
       demoUrl: 'https://holyhelper1.github.io/DreamHouse/',
       codeUrl: 'https://github.com/Holyhelper1/DreamHouse',
-      hasDemo: true,
-      hasCode: true,
     },
     {
       id: 'crossfit',
-      title: t.projects.crossfit.title,
-      description: t.projects.crossfit.description,
-      tech: t.projects.crossfit.tech,
-      accent: styles.cardAccent5,
-      badge: locale === 'ru' ? 'Верстка / Лендинг' : 'Landing / UI',
+      title: t.projects.archive.crossfit.title,
+      description: t.projects.archive.crossfit.description,
+      tech: t.projects.archive.crossfit.tech,
       image: crossfitImg,
       demoUrl: 'https://holyhelper1.github.io/CrossFit/',
       codeUrl: 'https://github.com/Holyhelper1/CrossFit',
-      hasDemo: true,
-      hasCode: true,
     },
   ];
 
   const techToArray = (techStr: string) => {
     if (!techStr) return [];
-    return techStr.split(',').map((t) => t.trim());
+    return techStr.split(',').map((item) => item.trim());
   };
 
   return (
-    <section 
-      className={`${styles.projects} ${isRevealed ? styles.visible : ''}`} 
+    <section
+      className={`${styles.projects} ${isRevealed ? styles.visible : ''}`}
       id="projects"
       ref={ref}
     >
       <h2 className={styles.sectionTitle}>{t.projects.title}</h2>
       <p className={styles.sectionSubtitle}>{t.projects.subtitle}</p>
 
+      <CapsulaCase isRevealed={isRevealed} />
+
       <div className={styles.grid}>
         {projects.map((project, index) => (
           <article
             key={project.id}
-            className={`${styles.card} ${project.accent}`}
+            className={`${styles.card} ${project.accent} ${
+              project.wide ? styles.cardWide : ''
+            }`}
             style={{ '--index': index } as React.CSSProperties}
           >
-            <div 
-              className={styles.cardImage} 
+            <div
+              className={styles.cardImage}
               onClick={() => setActiveImage(project.image)}
               title={locale === 'ru' ? 'Увеличить изображение' : 'Zoom image'}
             >
@@ -132,7 +132,22 @@ export function Projects() {
 
             <div className={styles.cardBody}>
               <h3 className={styles.cardTitle}>{project.title}</h3>
-              <p className={styles.cardDescription}>{project.description}</p>
+              <p className={styles.cardTagline}>{project.tagline}</p>
+
+              <dl className={styles.caseList}>
+                <div className={styles.caseRow}>
+                  <dt>{t.projects.labels.task}</dt>
+                  <dd>{project.task}</dd>
+                </div>
+                <div className={styles.caseRow}>
+                  <dt>{t.projects.labels.solution}</dt>
+                  <dd>{project.solution}</dd>
+                </div>
+                <div className={styles.caseRow}>
+                  <dt>{t.projects.labels.result}</dt>
+                  <dd className={styles.caseResult}>{project.result}</dd>
+                </div>
+              </dl>
 
               <div className={styles.cardTech}>
                 {techToArray(project.tech).map((tech) => (
@@ -143,41 +158,32 @@ export function Projects() {
               </div>
 
               <div className={styles.cardActions}>
-                {project.hasDemo && project.demoUrl && (
+                {project.demoUrl && (
                   <a
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${styles.cardLink} ${styles.cardLinkPrimary}`}
                   >
-                    <ExternalLink size={14} /> {t.projects.links.demo || 'Demo'}
+                    <ExternalLink size={14} /> {t.projects.links.demo}
                   </a>
                 )}
-                
-                {project.hasCode && project.codeUrl && (
+
+                {project.codeUrl && (
                   <a
                     href={project.codeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${styles.cardLink} ${styles.cardLinkSecondary}`}
                   >
-                    <FolderGit2 size={14} /> {t.projects.links.code || 'Code'}
+                    <FolderGit2 size={14} /> {t.projects.links.code}
                   </a>
                 )}
 
                 {project.isPrivate && (
                   <span className={styles.privateBadge}>
-                    <Lock size={14} /> {t.projects.links.private || 'Private'}
+                    <Lock size={14} /> {t.projects.links.private}
                   </span>
-                )}
-
-                {project.hasCaseStudy && (
-                  <button 
-                    className={`${styles.cardLink} ${styles.cardLinkSecondary}`}
-                    onClick={() => alert(locale === 'ru' ? 'Описание кейса в разработке' : 'Case study coming soon')}
-                  >
-                    <ExternalLink size={14} /> {locale === 'ru' ? 'О кейсе' : 'Case Study'}
-                  </button>
                 )}
               </div>
             </div>
@@ -185,25 +191,75 @@ export function Projects() {
         ))}
       </div>
 
+      <details className={styles.archive}>
+        <summary className={styles.archiveSummary}>
+          <span className={styles.archiveTitle}>
+            <Archive size={18} /> {t.projects.archive.title}
+          </span>
+          <span className={styles.archiveDescription}>
+            {t.projects.archive.description}
+          </span>
+          <ChevronDown size={20} className={styles.archiveChevron} />
+        </summary>
+
+        <div className={styles.archiveGrid}>
+          {archiveProjects.map((project) => (
+            <article key={project.id} className={styles.archiveCard}>
+              <button
+                type="button"
+                className={styles.archiveImage}
+                onClick={() => setActiveImage(project.image)}
+                aria-label={project.title}
+              >
+                <img src={project.image} alt={project.title} loading="lazy" />
+              </button>
+              <div className={styles.archiveBody}>
+                <h4 className={styles.archiveCardTitle}>{project.title}</h4>
+                <p className={styles.archiveCardText}>{project.description}</p>
+                <span className={styles.archiveTech}>{project.tech}</span>
+                <div className={styles.archiveActions}>
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.archiveLink}
+                  >
+                    <ExternalLink size={13} /> {t.projects.links.demo}
+                  </a>
+                  <a
+                    href={project.codeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.archiveLink}
+                  >
+                    <FolderGit2 size={13} /> {t.projects.links.code}
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </details>
+
       {activeImage && (
-        <div 
-          className={styles.lightboxOverlay} 
+        <div
+          className={styles.lightboxOverlay}
           onClick={() => setActiveImage(null)}
         >
-          <button 
-            className={styles.lightboxClose} 
+          <button
+            className={styles.lightboxClose}
             onClick={() => setActiveImage(null)}
             aria-label="Close modal"
           >
             <X size={28} />
           </button>
-          <div 
+          <div
             className={styles.lightboxContent}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
           >
-            <img 
-              src={activeImage} 
-              alt="Project preview full screen" 
+            <img
+              src={activeImage}
+              alt="Project preview full screen"
               className={styles.lightboxImage}
             />
           </div>
