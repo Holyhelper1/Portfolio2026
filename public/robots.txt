@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://holyhelper1.github.io/Portfolio2026/sitemap.xml
