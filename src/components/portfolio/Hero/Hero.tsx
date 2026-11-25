@@ -1,6 +1,7 @@
 import { useLanguage } from '../../../i18n';
 import styles from './Hero.module.css';
 import avatarImg from '../../../assets/my-photo.jpg'; 
+import { Mouse } from 'lucide-react';
 
 interface HeroProps {
   onNavigate: (section: string) => void;
@@ -59,10 +60,10 @@ export function Hero({ onNavigate }: HeroProps) {
         </div>
 
       </div>
-
+      
       <div className={styles.scrollIndicator}>
         <span>SCROLL</span>
-        <span className={styles.scrollArrow}>↓</span>
+        <span className={styles.scrollArrow}> <Mouse size={22} /></span>
       </div>
     </section>
   );

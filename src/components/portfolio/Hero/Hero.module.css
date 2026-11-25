@@ -229,6 +229,9 @@
   .textContent {
     text-align: center;
   }
+  .scrollIndicator {
+    bottom: 10px;
+  }
 
   .ctaGroup {
     justify-content: center;
@@ -249,6 +252,10 @@
     font-size: 16px;
   }
 
+  /* .ctaGroup {
+    justify-content: space-between;
+  } */
+
   .ctaPrimary,
   .ctaSecondary {
     padding: 12px 24px;
@@ -258,6 +265,19 @@
   .avatar {
     width: 240px;
     height: 240px;
+  }
+}
+@media (max-width: 450px) {
+
+  .description{
+    margin-bottom: 20px;
+  }
+   .ctaGroup {
+    justify-content: space-between;
+  }
+  .scrollIndicator {
+    bottom: 5px;
+    right: 50%;
   }
 }
 

@@ -14,7 +14,7 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Frontend developer focused on React and TypeScript. At Bravo Soft, I'm responsible for the client-side architecture of B2B products, integrating unconventional solutions like Playwright and canvas.",
+    "description": "Frontend developer focused on React and TypeScript. At Bravo Soft, I'm responsible for the client-side architecture of B2B products, integrating unconventional solutions like Playwright.",
     "description2": "I love it when code is predictable and design is alive. I believe good frontend starts with good typing.",
     "location": "Nizhny Novgorod",
     "english": "English B2",

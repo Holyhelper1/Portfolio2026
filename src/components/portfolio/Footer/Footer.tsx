@@ -1,4 +1,5 @@
-import { Send, Mail, Briefcase, Github, Heart } from 'lucide-react';
+// import { Send, Mail, Briefcase, Github, Heart } from 'lucide-react';
+import { Send, Mail, Linkedin, Github, Heart } from 'lucide-react';
 import { useLanguage } from '../../../i18n';
 import styles from './Footer.module.css';
 
@@ -19,7 +20,7 @@ export function Footer() {
       label: 'Email',
     },
     {
-      icon: <Briefcase size={20} />,
+      icon: <Linkedin size={20} />,
       href: 'https://www.linkedin.com/in/alexander-shulgin-964b49267/',
       label: 'LinkedIn',
     },
