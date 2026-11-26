@@ -2,6 +2,7 @@
   padding: 100px 24px;
   max-width: 1200px;
   margin: 0 auto;
+  overflow-x: clip;
 }
 
 .sectionTitle,
@@ -36,6 +37,14 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+:global(html:not(.js-reveal)) .sectionTitle,
+:global(html:not(.js-reveal)) .sectionSubtitle,
+:global(html:not(.js-reveal)) .textBlock,
+:global(html:not(.js-reveal)) .statCard {
+  opacity: 1;
+  transform: none;
 }
 
 .grid {

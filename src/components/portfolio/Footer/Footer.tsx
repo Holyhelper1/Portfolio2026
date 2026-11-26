@@ -62,10 +62,10 @@ export function Footer() {
           <div className={styles.links}>
             <div className={styles.linkGroup}>
               <h4>{t.header.projects}</h4>
-              <a href="#projects">Lumiere-closet</a>
+              <a href="#projects">CAPSULA AI</a>
               <a href="#projects">Tentoteka</a>
-              <a href="#projects">Ruslana Cakes</a>
               <a href="#projects">No-Code Testing</a>
+              <a href="#projects">Ruslana Cakes</a>
             </div>
             
             <div className={styles.linkGroup}>
