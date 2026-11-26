@@ -1,5 +1,4 @@
-
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import ru from './locales/ru.json';
 import en from './locales/en.json';
 
@@ -9,12 +8,7 @@ type Translations = typeof ru;
 
 const translations: Record<Locale, Translations> = { ru, en };
 
-const getInitialLocale = (): Locale => {
-  if (typeof window === 'undefined') return 'ru';
-  const saved = localStorage.getItem('locale');
-  if (saved === 'ru' || saved === 'en') return saved;
-  return 'ru';
-};
+const getInitialLocale = (): Locale => 'ru';
 
 interface LanguageContextType {
   locale: Locale;
@@ -34,8 +28,25 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale);
     localStorage.setItem('locale', newLocale);
-    document.documentElement.lang = newLocale;
   }, []);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('locale');
+    if (saved === 'ru' || saved === 'en') {
+      setLocaleState(saved);
+    }
+  }, []);
+
+  useEffect(() => {
+    const meta = translations[locale].meta;
+    document.documentElement.lang = locale;
+    document.title = meta.title;
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.setAttribute('content', meta.description);
+    }
+  }, [locale]);
 
   const value = {
     locale,

@@ -1,4 +1,4 @@
-import { Zap, Rocket, Wrench, MapPin, Globe } from 'lucide-react';
+import { Zap, Rocket, Sparkles, MapPin, Globe } from 'lucide-react';
 import { useLanguage } from '../../../i18n';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import styles from './About.module.css';
@@ -21,43 +21,43 @@ export function About() {
       iconClass: styles.statIconProj,
     },
     {
-      icon: <Wrench size={24} />,
-      value: t.about.technologiesValue,
-      label: t.about.technologies,
+      icon: <Sparkles size={24} />,
+      value: t.about.aiProductValue,
+      label: t.about.aiProduct,
       iconClass: styles.statIconTech,
     },
   ];
 
   return (
-    <section 
-      className={`${styles.about} ${isRevealed ? styles.visible : ''}`} 
-      id="about" 
+    <section
+      className={`${styles.about} ${isRevealed ? styles.visible : ''}`}
+      id="about"
       ref={ref}
     >
       <h2 className={styles.sectionTitle}>{t.about.title}</h2>
-      <p className={styles.sectionSubtitle}>
-        Frontend Developer · React · TypeScript
-      </p>
+      <p className={styles.sectionSubtitle}>{t.about.subtitle}</p>
 
       <div className={styles.grid}>
         <div className={styles.textBlock}>
           <p>{t.about.description}</p>
           <p>{t.about.description2}</p>
           <div className={styles.location}>
-            <MapPin size={16} /> {t.about.location} &nbsp;|&nbsp; <Globe size={16} /> {t.about.english}
+            <MapPin size={16} /> {t.about.location} &nbsp;|&nbsp;{' '}
+            <Globe size={16} /> {t.about.english}
           </div>
           <div className={styles.tags}>
-            <span className={styles.tag}>TypeScript 51.2%</span>
-            <span className={styles.tag}>JavaScript 28.4%</span>
-            <span className={styles.tag}>CSS 12.1%</span>
-            <span className={styles.tag}>HTML 8.3%</span>
+            {t.about.focus.map((item) => (
+              <span key={item} className={styles.tag}>
+                {item}
+              </span>
+            ))}
           </div>
         </div>
 
         <div className={styles.statsBlock}>
           {stats.map((stat, index) => (
-            <div 
-              key={stat.label} 
+            <div
+              key={stat.label}
               className={styles.statCard}
               style={{ '--index': index } as React.CSSProperties}
             >

@@ -1,6 +1,6 @@
 import { useLanguage } from '../../../i18n';
 import styles from './Hero.module.css';
-import avatarImg from '../../../assets/my-photo.jpg'; 
+import avatarImg from '../../../assets/my-photo.jpg';
 import { Mouse } from 'lucide-react';
 
 interface HeroProps {
@@ -19,53 +19,54 @@ export function Hero({ onNavigate }: HeroProps) {
       </div>
 
       <div className={styles.content}>
-        
         <div className={styles.textContent}>
           <p className={styles.greeting}>{t.hero.greeting}</p>
-          <h1 className={styles.name}>{t.hero.name}</h1>
-          <p className={styles.role}>{t.hero.role}</p>
-          <p className={styles.subtitle}>
-            {'< '}
-            <span>React</span>
-            {' | '}
-            <span>TypeScript</span>
-            {' | '}
-            <span>Redux Toolkit</span>
-            {' >'}
-          </p>
+          <h1 className={styles.name}>
+            <span className={styles.nameText}>{t.hero.name}</span>
+            <span className={styles.role}>{t.hero.role}</span>
+          </h1>
+
+          <ul className={styles.stackList} aria-label="Tech stack">
+            {t.hero.stack.map((tech) => (
+              <li key={tech} className={styles.stackTag}>
+                {tech}
+              </li>
+            ))}
+          </ul>
+
           <p className={styles.description}>{t.hero.description}</p>
-          
+
           <div className={styles.ctaGroup}>
             <button
               className={styles.ctaPrimary}
               onClick={() => onNavigate('projects')}
             >
-              {t.header.projects}
+              {t.hero.primaryCta}
             </button>
             <button
               className={styles.ctaSecondary}
               onClick={() => onNavigate('contact')}
             >
-              {t.header.contact}
+              {t.hero.secondaryCta}
             </button>
           </div>
         </div>
 
         <div className={styles.photoContainer}>
-          <img 
-            src={avatarImg} 
-            alt={t.hero.name} 
-            className={styles.avatar} 
+          <img
+            src={avatarImg}
+            alt={t.hero.name}
+            className={styles.avatar}
           />
         </div>
-
       </div>
-      
+
       <div className={styles.scrollIndicator}>
-        <span>SCROLL</span>
-        <span className={styles.scrollArrow}> <Mouse size={22} /></span>
+        <span>{t.hero.scroll}</span>
+        <span className={styles.scrollArrow}>
+          <Mouse size={22} />
+        </span>
       </div>
     </section>
   );
 }
-

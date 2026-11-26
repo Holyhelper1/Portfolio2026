@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "Александр Шульгин — Fullstack / AI Product Engineer",
+    "description": "Fullstack / AI Product Engineer: создаю веб-приложения и AI-продукты под ключ — React, Next.js, TypeScript, Node.js, PostgreSQL, LLM и платёжные системы. Кейс CAPSULA AI."
+  },
   "header": {
     "about": "Обо мне",
     "projects": "Проекты",
@@ -8,69 +12,147 @@
   "hero": {
     "greeting": "Привет, я",
     "name": "Александр Шульгин",
-    "role": "Middle Frontend Developer",
-    "subtitle": "React | TypeScript | Redux Toolkit",
-    "description": "Строю сложные интерфейсы, которые приятно открывать и удобно поддерживать."
+    "role": "Fullstack / AI Product Engineer",
+    "description": "Создаю быстрые веб-приложения и AI-продукты под ключ: от UI на React/Next.js до интеграции LLM, генеративных моделей и платёжных систем.",
+    "stack": ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "AI API"],
+    "primaryCta": "Смотреть кейсы",
+    "secondaryCta": "Обсудить проект",
+    "scroll": "SCROLL"
   },
   "about": {
     "title": "Обо мне",
-    "description": "Frontend-разработчик с фокусом на React и TypeScript. В Bravo Soft отвечаю за архитектуру клиентской части B2B-продуктов, интегрирую нестандартные решения вроде Playwright.",
-    "description2": "Люблю, когда код предсказуем, а дизайн — живой. Верю, что хороший фронтенд начинается с хорошей типизации.",
+    "subtitle": "Fullstack / AI Product Engineer · React · Next.js",
+    "description": "Fullstack-инженер с фокусом на React и TypeScript. В Bravo Soft отвечаю за архитектуру клиентской части B2B-продуктов и внедряю инструменты, которые ускоряют команду.",
+    "description2": "Сам спроектировал и запустил CAPSULA AI — AI-продукт с генеративными моделями, подписками и платежами. Люблю, когда код предсказуем, а продукт решает задачу бизнеса.",
     "location": "Нижний Новгород",
     "english": "Английский B2",
-    "experience": "Опыт",
+    "experience": "Коммерческий опыт",
     "experienceValue": "3+ года",
     "projects": "Проектов",
     "projectsValue": "10+",
-    "technologies": "Технологий",
-    "technologiesValue": "15+"
+    "aiProduct": "AI-продукт в проде",
+    "aiProductValue": "1",
+    "focus": [
+      "Frontend-архитектура",
+      "AI-интеграции",
+      "Производительность",
+      "B2B SaaS"
+    ]
   },
   "projects": {
-   "title": "Проекты",
-    "subtitle": "Мои ключевые коммерческие работы, продакшен-кейсы и адаптивные интерфейсы",
+    "title": "Кейсы",
+    "subtitle": "Продукты, которые я спроектировал и довёл до продакшена — от AI-сервиса до B2B-платформ",
+    "labels": {
+      "task": "Задача",
+      "solution": "Решение",
+      "result": "Результат",
+      "stack": "Стек",
+      "challenges": "Инженерные вызовы",
+      "architecture": "Архитектура",
+      "business": "Бизнес-модель"
+    },
     "links": {
       "demo": "Демо",
       "code": "GitHub",
-      "private": "Приватный репозиторий",
-      "caseStudy": "О кейсе"
+      "private": "Приватный код",
+      "open": "Открыть проект"
     },
-    "lumiere": {
-      "title": "Lumiere-closet",
-      "description": "Премиальное приложение для цифрового гардероба и планирования образов на базе искусственного интеллекта. Включает умный подбор одежды на основе визуального анализа, сезонные рекомендации и управление кастомными коллекциями.",
-      "tech": "Next.js, TypeScript, Prisma, CSS Module, NextAuth, OpenAI API"
+    "capsula": {
+      "badge": "AI-продукт · в продакшене",
+      "title": "CAPSULA AI",
+      "tagline": "ИИ-гардероб и виртуальная примерка",
+      "description": "Цифровой гардероб: пользователь загружает вещи, собирает образы и примеряет их на себе с помощью AI. Продукт запущен и принимает платежи.",
+      "stack": "Next.js, TypeScript, Prisma, PostgreSQL, Docker, S3, AI API, ЮKassa",
+      "business": "Тарифы FREE / BASIC / PRO, лимиты генераций и докупка пакетов создают повторяющуюся выручку.",
+      "challenges": [
+        {
+          "title": "Пайплайн обработки фото",
+          "description": "Автоматическое вырезание фона и сжатие в WebP на бэкенде — меньше вес файлов и расходы на S3."
+        },
+        {
+          "title": "AI-примерка",
+          "description": "Мультимодальные модели сохраняют черты лица и корректно сажают одежду по фигуре пользователя."
+        },
+        {
+          "title": "Юнит-экономика и оплата",
+          "description": "Подписки, лимиты генераций и приём платежей через ЮKassa с понятной стоимостью каждой примерки."
+        }
+      ],
+      "architecture": [
+        {
+          "title": "Next.js + TypeScript",
+          "description": "SSR, App Router, клиентский UI"
+        },
+        {
+          "title": "Server / API",
+          "description": "AI-пайплайны и бизнес-логика"
+        },
+        {
+          "title": "AI-провайдеры",
+          "description": "Удаление фона, анализ и виртуальная примерка"
+        },
+        {
+          "title": "PostgreSQL + Prisma",
+          "description": "Пользователи, вещи, образы, лимиты"
+        },
+        {
+          "title": "S3 + Docker",
+          "description": "Медиа, деплой на VDS"
+        },
+        {
+          "title": "ЮKassa",
+          "description": "Подписки и платёжные сценарии"
+        }
+      ]
     },
     "tentoteka": {
+      "badge": "Коммерческий",
       "title": "Tentoteka",
-      "description": "Коммерческая веб-платформа для производственной компании, создающей автомобильные тенты и полога. Разработано как быстрое клиентское приложение, интегрированное с системой управления контентом.",
-      "tech": "React, TypeScript, Vite, WordPress REST API, CSS Module"
+      "tagline": "B2B-каталог тентов с управлением контентом",
+      "task": "Бизнесу нужен быстрый сайт-каталог, который маркетинг может обновлять без разработчика.",
+      "solution": "React + Vite с интеграцией WordPress REST API: контент из CMS, быстрый клиентский рендер и адаптивная вёрстка.",
+      "result": "Сайт в продакшене: контент обновляется силами маркетинга, без релизов фронтенда.",
+      "tech": "React, TypeScript, Vite, WordPress REST API, CSS Modules"
     },
-        "noCodeTesting": {
+    "noCodeTesting": {
+      "badge": "Коммерческий · Bravo Soft",
       "title": "No-Code Testing",
-      "description": "Коммерческая B2B-платформа для создания E2E-тестов без написания кода. Разработал визуальный конструктор шагов, интегрировал архитектуру работы с Canvas и ускорил сборку проекта в 2 раза за счет миграции на Vite.",
+      "tagline": "Платформа для E2E-тестов без кода",
+      "task": "Дать командам возможность собирать E2E-тесты без программирования.",
+      "solution": "Визуальный конструктор шагов на Canvas, Playwright под капотом и RTK Query для работы с API.",
+      "result": "Сборка и dev-сервер ускорены в 2 раза после перехода на Vite; объём кода для работы с API сокращён на 30% за счёт RTK Query.",
       "tech": "Playwright, Canvas, React, RTK Query, CSS Modules, Vite"
     },
-
     "ruslana": {
+      "badge": "Пет-проект / MVP",
       "title": "Ruslana Cakes",
-      "description": "Полнофункциональный MVP пет-проект интернет-магазина для кондитерской. Реализован интерактивный каталог товаров, кастомное управление корзиной и автоматические уведомления о заказах в Telegram.",
+      "tagline": "Интернет-магазин кондитерской под ключ",
+      "task": "Проверить спрос на онлайн-заказы без разработки полноценной e-commerce-платформы.",
+      "solution": "Каталог, корзина, оформление заказа и автоматические уведомления в Telegram на Firebase.",
+      "result": "Работающий MVP: заказы приходят автоматически, без ручной обработки заявок.",
       "tech": "React, Vite, TypeScript, Firebase, Context API, SCSS"
     },
-    "dreamhouse": {
-      "title": "DreamHouse",
-      "description": "Адаптивный лендинг для строительной компании премиум-класса. Сделан упор на pixel-perfect верстку, плавные анимации интерфейса и высокую скорость загрузки страниц.",
-      "tech": "React, Vite, SCSS, TypeScript, методология БЭМ"
-    },
-    "crossfit": {
-      "title": "CrossFit",
-      "description": "Современный динамичный лендинг для фитнес-клуба и кроссфит-сообщества. Адаптивные сетки, темная эстетика в дизайне, интерактивные блоки расписания и плавная анимация при скролле.",
-      "tech": "React, Vite, SCSS, TypeScript, методология БЭМ"
+    "archive": {
+      "title": "Архив / Вёрстка",
+      "description": "Учебные и лендинговые проекты — оставил для истории",
+      "dreamhouse": {
+        "title": "DreamHouse",
+        "description": "Адаптивный лендинг строительной компании: pixel-perfect вёрстка и аккуратные анимации.",
+        "tech": "React, Vite, SCSS, TypeScript, БЭМ"
+      },
+      "crossfit": {
+        "title": "CrossFit",
+        "description": "Динамичный лендинг фитнес-клуба: сетки, тёмная эстетика и анимации при скролле.",
+        "tech": "React, Vite, SCSS, TypeScript, БЭМ"
+      }
     }
   },
   "stack": {
     "title": "Технологический стек",
-    "subtitle": "Инструменты и технологии, с которыми работаю ежедневно",
+    "subtitle": "Инструменты, с которыми работаю ежедневно — от интерфейсов до AI-пайплайнов",
     "languages": "Языки",
     "frameworks": "Фреймворки и библиотеки",
+    "backendAi": "Backend & AI",
     "styling": "Стилизация",
     "tools": "Инструменты",
     "testing": "Тестирование"
