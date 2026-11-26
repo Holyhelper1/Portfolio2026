@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   ArrowRight,
   CreditCard,
@@ -39,6 +40,23 @@ export function CapsulaCase({ isRevealed }: CapsulaCaseProps) {
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
   const project = t.projects.capsula;
+
+  useEffect(() => {
+    if (!activeImage) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setActiveImage(null);
+    };
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [activeImage]);
 
   const techToArray = (techStr: string) =>
     techStr
@@ -164,31 +182,36 @@ export function CapsulaCase({ isRevealed }: CapsulaCaseProps) {
         </div>
       </div>
 
-      {activeImage && (
-        <div
-          className={styles.lightboxOverlay}
-          onClick={() => setActiveImage(null)}
-        >
-          <button
-            type="button"
-            className={styles.lightboxClose}
-            onClick={() => setActiveImage(null)}
-            aria-label="Close modal"
-          >
-            <X size={28} />
-          </button>
+      {activeImage &&
+        createPortal(
           <div
-            className={styles.lightboxContent}
-            onClick={(event) => event.stopPropagation()}
+            className={styles.lightboxOverlay}
+            onClick={() => setActiveImage(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="CAPSULA AI preview"
           >
-            <img
-              src={activeImage}
-              alt="CAPSULA AI full screen preview"
-              className={styles.lightboxImage}
-            />
-          </div>
-        </div>
-      )}
+            <button
+              type="button"
+              className={styles.lightboxClose}
+              onClick={() => setActiveImage(null)}
+              aria-label="Close modal"
+            >
+              <X size={28} />
+            </button>
+            <div
+              className={styles.lightboxContent}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <img
+                src={activeImage}
+                alt="CAPSULA AI full screen preview"
+                className={styles.lightboxImage}
+              />
+            </div>
+          </div>,
+          document.body,
+        )}
     </article>
   );
 }

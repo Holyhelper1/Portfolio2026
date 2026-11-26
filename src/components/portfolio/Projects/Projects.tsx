@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Archive,
   ChevronDown,
@@ -23,6 +23,23 @@ export function Projects() {
   const { ref, isRevealed } = useScrollReveal();
 
   const [activeImage, setActiveImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!activeImage) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setActiveImage(null);
+    };
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [activeImage]);
 
   const projects = [
     {
@@ -245,6 +262,9 @@ export function Projects() {
         <div
           className={styles.lightboxOverlay}
           onClick={() => setActiveImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project preview"
         >
           <button
             className={styles.lightboxClose}

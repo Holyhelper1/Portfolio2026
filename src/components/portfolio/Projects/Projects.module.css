@@ -281,6 +281,10 @@
   border-radius: 24px 0 0 24px;
 }
 
+.cardWide .cardImage img {
+  object-position: right center;
+}
+
 .cardWide .cardBody {
   justify-content: center;
 }
